@@ -1,3 +1,3 @@
 # Unity-GitHub-test
 
-This is a litle test about unity and github
+This is a little test about unity and github
