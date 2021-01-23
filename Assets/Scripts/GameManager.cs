@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
-    private bool _gameHasEnded = false;
+    private bool _gameHasEnded;
     public float restartDelay = 1f;
+    public GameObject completeLevelUi;
+    public GameObject score;
 
     public bool IsGameEnded()
     {
@@ -22,11 +25,12 @@ public class GameManager : MonoBehaviour
 
     public void WonLevel()
     {
-        Debug.Log("LEVEL WON !");
-        Invoke("Restart", restartDelay);
+        _gameHasEnded = true;
+        completeLevelUi.SetActive(true);
+        score.SetActive(false);
     }
 
-    void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
